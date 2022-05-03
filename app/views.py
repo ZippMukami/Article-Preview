@@ -22,7 +22,7 @@ def index():
 
 
 
-    title = 'Home - Welcome to Article Review. This should be it!'
+    title = 'Home - Welcome to Article Review.'
     return render_template ('index.html', title = title, headlines = top_headlines, everything = everything, source = sources)
 
 
