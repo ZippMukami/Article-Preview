@@ -2,6 +2,7 @@ from email import message
 from re import A
 from flask import render_template
 from app import app
+from .request import get_news
 
 #views
 @app.route('/')
