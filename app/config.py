@@ -5,7 +5,7 @@ class Config:
     '''
     General configuration parent class
     '''
-    pass
+    NEWS_API_BASE_URL ='https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=6721828ddfd14070b08e9d6d1e968e50'
 
 class ProdConfig(Config):
     '''
