@@ -1,8 +1,9 @@
 from email import message
 from re import A
+from turtle import title
 from flask import render_template
 from app import app
-from .request import get_news
+from .request import get_news, get_news
 
 #views
 @app.route('/')
@@ -25,7 +26,14 @@ def index():
     return render_template ('index.html', title = title, headlines = top_headlines, everything = everything)
 
 
-@app.route('/news/<int:news_id>')
-def news(news_id):
+@app.route('/news/<int:id>')
+def news(id):
 
-     return render_template('news.html', id = news_id)
+    '''
+    View news page function that returns the news details page and its data
+    '''
+    news = get_news(id)
+    title = f'{news.title}'
+
+
+    return render_template('news.html', title = title, news = news)
