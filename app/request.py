@@ -1,3 +1,5 @@
+from ast import Return
+from turtle import title
 from app import app
 import urllib.request, json
 from .models import news
@@ -54,5 +56,28 @@ def process_results(news_list):
     # print(news_results)
 
     return news_results
+
+
+def get_news(id):
+    get_news_details_url = base_url.format(id, api_key)
+
+    with urllib.request.urlopen(get_news_details_url) as url:
+        news_details_data = url.read()
+        news_details_response = json.loads(news_details_data)
+
+        news_object = None
+        if news_details_response:
+            id = news_details_response.get ('id')
+            title = news_details_response.get('title')
+            description = news_details_response.get('description')
+            urlToImage = news_details_response.get('urlToImage')
+            content = news_details_response.get('content')
+            publishedAt = news_details_response.get('publishedAt')
+
+            news_object = News(id, title, description, urlToImage, content, publishedAt)
+
+    return news_object            
+
+
 
 
