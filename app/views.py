@@ -13,10 +13,18 @@ def index():
 
     # Getting top headlines
     top_headlines = get_news('headlines')
+
+    #Getting everything
+    everything = get_news('everything')
+
+    #Gettinf the sources
+    sources = get_news('source')
+
+
     # print(top_headlines)
 
     title = 'Home - Welcome to Article Review. This should be it!'
-    return render_template ('index.html', title = title, headlines = top_headlines)
+    return render_template ('index.html', title = title, headlines = top_headlines, everything = everything, source = sources)
 
 
 @app.route('/news/<int:news_id>')
