@@ -21,7 +21,6 @@ def index():
     sources = get_news('source')
 
 
-    # print(top_headlines)
 
     title = 'Home - Welcome to Article Review. This should be it!'
     return render_template ('index.html', title = title, headlines = top_headlines, everything = everything, source = sources)
