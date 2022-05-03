@@ -15,7 +15,7 @@
 <body>
 
     {% block content %}
-    
+
     <h3> Top Headlines</h3>
     <ul>
         {{ macro.displayNewsList(headlines)}}
@@ -24,11 +24,7 @@
     <ul>
         {{ macro.displayNewsList(everything)}}
     </ul>
-    <h3> Sources</h3>
-    <ul>
-        {{ macro.displayNewsList(sources)}}
-    </ul>
-
+    
     {% endblock%}
 
 </body>

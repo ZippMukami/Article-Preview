@@ -17,13 +17,12 @@ def index():
     #Getting everything
     everything = get_news('everything')
 
-    #Gettinf the sources
-    sources = get_news('source')
+    
 
 
 
     title = 'Home - Welcome to Article Review.'
-    return render_template ('index.html', title = title, headlines = top_headlines, everything = everything, source = sources)
+    return render_template ('index.html', title = title, headlines = top_headlines, everything = everything)
 
 
 @app.route('/news/<int:news_id>')
