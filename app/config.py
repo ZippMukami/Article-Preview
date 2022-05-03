@@ -1,3 +1,6 @@
+from distutils.debug import DEBUG
+
+
 class Config:
     '''
     General configuration parent class
@@ -10,3 +13,11 @@ class ProdConfig(Config):
     '''
 
     pass
+
+
+class DevConfig(Config): 
+    '''
+    Development configuration child class
+    '''
+
+    DEBUG = True
