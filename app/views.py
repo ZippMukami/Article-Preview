@@ -8,3 +8,9 @@ from app import app
 def index():
      message = "Better luck this time"
      return render_template ('index.html', message = message)
+
+
+@app.route('/news/<new_id>')
+def news(news_id):
+
+     return render_template('news.html', id = news_id)
