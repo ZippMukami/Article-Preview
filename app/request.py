@@ -1,4 +1,6 @@
+from ast import Return
 from multiprocessing import process
+from turtle import title
 from unicodedata import category
 from app import app
 import urllib.request, json
@@ -60,4 +62,22 @@ def process_articles(bulletin_list):
     return bulletin_articles
     
 
+def get_bulletin(id):
+    get_bulletin_details_url = base_url.format(id, api_key)
 
+    with urllib.request.urlopen(get_bulletin_details_url) as url:
+        bulletin_details_data = url.read()
+        bulletin_details_response = json.loads(bulletin_details_data)
+
+        bulletin_object = None
+        if bulletin_details_response:
+            id = bulletin_details_response.get('id')
+            title = bulletin_details_response.get('title')
+            description = bulletin_details_response.get('description')
+            urlToImage = bulletin_details_response.get('urlToImage')
+            content = bulletin_details_response.get('content')
+            publishedAt = bulletin_details_response.get('publishedAt')
+
+            bulletin_object = Bulletin(id, title, description, urlToImage, content, publishedAt)
+   
+    return bulletin_object
