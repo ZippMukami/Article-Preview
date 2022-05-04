@@ -3,7 +3,7 @@ from email import message
 from turtle import title
 from flask import render_template
 from app import app
-from .request import get_bulletins, get_bulletin
+from .request import get_bulletins, get_bulletin, search_bulletin
 
 
 # Views
@@ -30,3 +30,17 @@ def bulletin(id):
     title = f'{bulletin.title}'
 
     return render_template('bulletin.html', title = title, bulletin = bulletin)
+
+
+@app.route('/search/<bulletin_name>')
+def search(bulletin_name):
+    ''''
+    View function to display the search results
+    '''
+
+    bulletin_name_list = bulletin_name.split(" ")
+    bulletin_name_format = "+".join(bulletin_name_list)
+    searched_bulletins = search_bulletin(bulletin_name_format)
+    title = f'search articles for {bulletin_name}'
+    return render_template('search.html', bulletins = searched_bulletins)
+   
