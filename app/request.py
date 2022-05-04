@@ -81,3 +81,18 @@ def get_bulletin(id):
             bulletin_object = Bulletin(id, title, description, urlToImage, content, publishedAt)
    
     return bulletin_object
+
+
+def search_bulletin(bulletin_name):
+    search_bulletin_url = 'https://newsapi.org/v2/everything?api_key={}&query={}'.format(api_key,bulletin_name)
+    with urllib.request.urlopen(search_bulletin_url) as url:
+        search_bulletin_data = url.read()
+        search_bulletin_response = json.loads(search_bulletin_data)
+
+        search_bulletin_articles = None
+
+        if search_bulletin_response['articles']:
+            search_bulletin_list = search_bulletin_response['articles']
+            search_bulletin_articles = process_articles(search_bulletin_list)
+
+    return search_bulletin_articles
