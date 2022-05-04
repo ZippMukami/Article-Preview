@@ -1,0 +1,7 @@
+{% macro displayBulletinList(bulletin_list) %}
+
+    {% for bulletin in bulletin_list %}
+        <li>{{ bulletin.title}}</li>
+    {% endfor %}
+
+{% endmacro %}
