@@ -1,7 +1,12 @@
 {% macro displayBulletinList(bulletin_list) %}
 
     {% for bulletin in bulletin_list %}
-        <li>{{ bulletin.title}}</li>
-    {% endfor %}
+    <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 bulletin-card">
+        <img src="{{ bulletin.urlToImage }}" alt="{{ bulletin.title }} urlToImage" class="img-responsive">
+        <li class="text-center">
+            <a href="/bulletin/{{bulletin.id}}">
+                {{ bulletin.title|truncate(10)}}</a>
+        </li>
+    </div>    {% endfor %}
 
 {% endmacro %}
