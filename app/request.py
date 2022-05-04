@@ -19,7 +19,7 @@ def get_bulletins(category):
 
     get_bulletins_url = base_url.format(category, api_key)
 
-    with urllib.request.urlopen(get_bulletins_url):
+    with urllib.request.urlopen(get_bulletins_url) as url:
         get_bulletins_data = url.read()
         get_bulletins_response = json.loads(get_bulletins_data)
 

@@ -1,5 +1,5 @@
 import unittest
-from models import bulletin
+from .models import bulletin
 Bulletin = bulletin.Bulletin
 
 class BulletinTest(unittest.TestCase):
