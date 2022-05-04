@@ -3,8 +3,7 @@ from email import message
 from turtle import title
 from flask import render_template
 from app import app
-from .request import get_bulletins
-from .requests import get_bullets, get_bulletin
+from .request import get_bulletins, get_bulletin
 
 
 # Views
