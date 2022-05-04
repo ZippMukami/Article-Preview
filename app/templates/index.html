@@ -3,31 +3,33 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> welcome to Article Review! </title>
-        {% endif %}
-    </head>
-    <body>
 
-           <!-- Popular bulleting section  -->
-           <h3> Top Headlines</h3>
-           <ul>
-              {% for top_headlines in headlines %}
-                  <li>{{ top_headlines.title}}</li>
-              {% endfor %}
-          </ul>
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> welcome to Article Review! </title>
+    {% endif %}
+</head>
 
-          <!-- Everything section  -->
-          <h3> Everything</h3>
-          <ul>
-             {% for everything in everything %}
-                 <li>{{ everything.title}}</li>
-             {% endfor %}
-         </ul>
+<body>
+    <!-- Content block -->
+    {% block content %}
 
-    </body>
+    <!-- Popular bulleting section  -->
+    <h3> Top Headlines</h3>
+    <ul>
+        {{ macro.displayBulletinList(headlines)}}
+    </ul>
+
+    <!-- Everything section  -->
+    <h3> Everything</h3>
+    <ul>
+        {{ macro.displayBulletinList(everything)}}
+    </ul>
+
+    {% endblock%}
+</body>
+
 </html>
