@@ -12,7 +12,7 @@ def index():
     message = "Articles Review Page"
     return render_template('index.html', message = message)
 
-@app.route('/bulletin/<bulletin_id>')    
+@app.route('/bulletin/<int:bulletin_id>')    
 def bulletin(bulletin_id):
     '''
     View bulletin page function that returns the bulletin page and its dat
