@@ -1,11 +1,13 @@
 from distutils.debug import DEBUG
 
+from instance.config import BULLETIN_API_KEY
+
 
 class Config:
     '''
     General configuration parent class
     '''
-    pass
+    BULLETIN_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=6721828ddfd14070b08e9d6d1e968e50'
 
 class ProdConfig(Config):
     '''
