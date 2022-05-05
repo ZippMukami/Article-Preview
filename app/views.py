@@ -4,6 +4,9 @@ from turtle import title
 from flask import render_template, request, redirect, url_for
 from app import app
 from .request import get_bulletins, get_bulletin, search_bulletin
+from .models import review
+from .forms import ReviewForm
+Review = review.Review
 
 
 # Views
