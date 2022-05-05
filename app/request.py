@@ -84,7 +84,9 @@ def get_bulletin(id):
 
 
 def search_bulletin(bulletin_name):
-    search_bulletin_url = 'https://newsapi.org/v2/everything?api_key={}&query={}'.format(api_key,bulletin_name)
+    
+    search_bulletin_url = base_url.format(api_key)
+
     with urllib.request.urlopen(search_bulletin_url) as url:
         search_bulletin_data = url.read()
         search_bulletin_response = json.loads(search_bulletin_data)
