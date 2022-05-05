@@ -54,3 +54,19 @@ def search(bulletin_name):
     title = f'search articles for {bulletin_name}'
     return render_template('search.html', bulletins = searched_bulletins)
    
+
+
+@app.route('/bulletin/review/new/<int:id>', methods = ['GET', 'POST'])
+def new_review(id):
+    form = ReviewForm()
+    bulletin = get_bulletin(id)
+
+    if form.validate_on_submit():
+        title = form.title.data
+        review = form.review.data
+        new_review = Review(bulletin.id, title, bulletin.urlToImage, review)
+        new_review.save_review()
+        return redirect(url_for('bulletin', id = bulletin.id))
+
+    title = f'{bulletin.title} review'
+    return render_template('new_review.html', title = title, review = form, bulletin = bulletin)
