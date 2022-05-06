@@ -5,7 +5,8 @@
 
     <!-- urlToImage background -->
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 urlToImagePath" style="background: url({{bulletin.urlToImage}}) no-repeat center center">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 urlToImagePath"
+            style="background: url({{bulletin.urlToImage}}) no-repeat center center">
         </div>
 
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bulletin-details">
@@ -13,7 +14,7 @@
 
             <p class="overview"> {{ bulletin.description }}</p>
             <p class="ratings"> <b> {{ bulletin.publishedAt }}</b> - <i>{{ bulletin.id}} votes </i> </p>
-
+            <a class="ratings" href="/bulletin/review/new/{{bulletin.id}}"> Write a new review</a>
 
         </div>
     </div>
