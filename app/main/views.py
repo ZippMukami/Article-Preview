@@ -1,6 +1,3 @@
-from curses import tigetflag
-from email import message
-from turtle import title
 from flask import render_template, request, redirect, url_for
 from . import main
 from ..request import get_bulletins, get_bulletin, search_bulletin
