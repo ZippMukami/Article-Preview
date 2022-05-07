@@ -1,6 +1,6 @@
 import unittest
-from .models import bulletin
-Bulletin = bulletin.Bulletin
+from app.models import Bulletin
+# Bulletin = bulletin.Bulletin
 
 class BulletinTest(unittest.TestCase):
     '''

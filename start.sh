@@ -1,0 +1,4 @@
+export NEWS_API_KEY=6721828ddfd14070b08e9d6d1e968e50
+export SECRET_KEY=AHADI
+
+python manage.py server

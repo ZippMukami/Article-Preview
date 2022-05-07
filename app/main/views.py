@@ -2,15 +2,14 @@ from curses import tigetflag
 from email import message
 from turtle import title
 from flask import render_template, request, redirect, url_for
-from app import app
-from .request import get_bulletins, get_bulletin, search_bulletin
-from .models import review
+from . import main
+from ..request import get_bulletins, get_bulletin, search_bulletin
+from ..models import Review
 from .forms import ReviewForm
-Review = review.Review
 
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
     '''
     View root page function that returns the index page and its data
@@ -30,7 +29,7 @@ def index():
 
         return render_template('index.html', title = title, headlines = top_headlines, everything = everything)
 
-@app.route('/bulletin/<int:id>')    
+@main.route('/bulletin/<int:id>')    
 def bulletin(id):
     '''
     View bulletin page function that returns the bulletin page and its dat
@@ -42,7 +41,7 @@ def bulletin(id):
     return render_template('bulletin.html', title = title, bulletin = bulletin)
 
 
-@app.route('/search/<bulletin_name>')
+@main.route('/search/<bulletin_name>')
 def search(bulletin_name):
     ''''
     View function to display the search results
@@ -56,7 +55,7 @@ def search(bulletin_name):
    
 
 
-@app.route('/bulletin/review/new/<int:id>', methods = ['GET', 'POST'])
+@main.route('/bulletin/review/new/<int:id>', methods = ['GET', 'POST'])
 def new_review(id):
     form = ReviewForm()
     bulletin = get_bulletin(id)

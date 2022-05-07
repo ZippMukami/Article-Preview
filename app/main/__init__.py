@@ -1,7 +1,6 @@
-from flask import Blueprint, Flask
-from pip import main
+from flask import Blueprint
 main = Blueprint('main',__name__)
-from . import view, errors
+from . import views, errors
 
 
 
