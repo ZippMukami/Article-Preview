@@ -6,7 +6,10 @@ from app.models import Bulletin
 api_key = None
 
 #Getting the bulletin base urlp.c
-base_url = None
+base_url = 'https://newsapi.org/v2/'
+
+#
+
 
 def configure_request(app):
     global api_key, base_url
@@ -47,15 +50,16 @@ def process_articles(bulletin_list):
 
     bulletin_articles = []
     for bulletin_item in bulletin_list:
-        id = bulletin_item.get('id')
+        id = list(bulletin_item.get('source').values())[0]
         title = bulletin_item.get('title')
         description = bulletin_item.get('description')
+        url = bulletin_item.get('url')
         urlToImage = bulletin_item.get('urlToImage')
         content = bulletin_item.get('content')
         publishedAt = bulletin_item.get('publishedAt')
 
         if urlToImage:
-            bulletin_object = Bulletin(id, title, description, urlToImage, content, publishedAt)
+            bulletin_object = Bulletin(id, title, description, url, urlToImage, content, publishedAt)
             bulletin_articles.append(bulletin_object)
 
     return bulletin_articles
@@ -70,14 +74,15 @@ def get_bulletin(id):
 
         bulletin_object = None
         if bulletin_details_response:
-            id = bulletin_details_response.get('id')
+            id = list(bulletin_details_response.get('source').values())[0]
             title = bulletin_details_response.get('title')
             description = bulletin_details_response.get('description')
+            url = bulletin_details_response.get('url')
             urlToImage = bulletin_details_response.get('urlToImage')
             content = bulletin_details_response.get('content')
             publishedAt = bulletin_details_response.get('publishedAt')
 
-            bulletin_object = Bulletin(id, title, description, urlToImage, content, publishedAt)
+            bulletin_object = Bulletin(id, title, description, url, urlToImage, content, publishedAt)
    
     return bulletin_object
 

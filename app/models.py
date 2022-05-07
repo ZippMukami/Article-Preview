@@ -6,10 +6,11 @@ class Bulletin:
     Bulletin class to define Bulletin Objects
     '''
 
-    def __init__(self, id, title, description, urlToImage, content, publishedAt):
+    def __init__(self, id, title, description, url, urlToImage, content, publishedAt):
         self.id = id
         self.title = title
         self.description = description
+        self.url = url
         self.urlToImage = urlToImage
         self.content = content
         self.publishedAt = publishedAt
@@ -18,9 +19,10 @@ class Review:
 
     all_reviews = []
     
-    def __init__(self, id, title, urlToImage, review):
+    def __init__(self, id, title, url, urlToImage, review):
         self.id = id
         self.title = title
+        self.url = url
         self.urlToImage = urlToImage
         self.review = review
 
