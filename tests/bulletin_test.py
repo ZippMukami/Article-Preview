@@ -6,7 +6,7 @@ class BulletinTest(unittest.TestCase):
     '''
     Test Class to test the behaviour of the Bulletin class
     '''
-
+#setup
     def setUp(self):
         '''
         Set up method that will run before every test

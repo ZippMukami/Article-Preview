@@ -22,7 +22,6 @@ Jinja2==2.11.3
 MarkupSafe==2.0.1
 Mypackage==0.1
 pipenv==2022.5.2
-pkg_resources==0.0.0
 platformdirs==2.5.2
 pycodestyle==2.8.0
 pyperclip==1.8.2
