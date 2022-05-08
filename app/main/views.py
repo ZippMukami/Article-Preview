@@ -48,7 +48,7 @@ def search(bulletin_name):
     bulletin_name_format = "+".join(bulletin_name_list)
     searched_bulletins = search_bulletin(bulletin_name_format)
     title = f'search articles for {bulletin_name}'
-    return render_template('search.html', bulletins = searched_bulletins)
+    return render_template('search.html', title=title, bulletins = searched_bulletins)
    
 
 
