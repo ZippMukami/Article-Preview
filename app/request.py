@@ -87,6 +87,7 @@ def get_bulletin(id):
     return bulletin_object
 
 
+
 def search_bulletin(bulletin_name):
     
     search_bulletin_url = base_url.format(api_key)
