@@ -3,21 +3,23 @@
 {% for bulletin in bulletin_list %}
 <!-- <li class="text-center">
      -->
-    <!-- <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 bulletin-card">
+<!-- <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 bulletin-card">
         <img src="{{ bulletin.urlToImage }}" alt="{{ bulletin.title }} urlToImage" class="img-responsive">
 
         <a href="{{bulletin.url}}">
             {{ bulletin.title|truncate(15)}}</a>
     </div> -->
-
+<li>
     <div class="card bulletin-card" style="width: 18rem;">
-        <img class="card-img-top img-fluid" src="{{ bulletin.urlToImage }}" alt="{{ bulletin.title }}">
+        <img class="card-img-top img-fluid img-responsive" src="{{ bulletin.urlToImage }}" alt="{{ bulletin.title }}">
         <div class="card-body">
-          <h5 class="card-title">{{bulletin.title}}</h5>
-          <p class="card-text">{{bulletin.description}}</p>
-          <a href="{{bulletin.url}}" class="btn btn-primary">Go to article</a>
+            <h5 class="card-title">{{bulletin.title}}</h5>
+            <p class="card-text">{{bulletin.description}}</p>
+            <a href="{{bulletin.url}}" class="btn btn-primary">Go to article</a>
         </div>
-      </div>
+    </div>
+
+</li>
 <!-- </li>  -->
 
 {% endfor %}
